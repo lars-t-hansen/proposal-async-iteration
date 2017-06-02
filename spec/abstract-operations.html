@@ -58,11 +58,8 @@
     1. Assert: _queue_ is not an empty List.
     1. Remove the first element from _queue_ and let _next_ be the value of that element.
     1. Let _promiseCapability_ be _next_.[[Capability]].
-    1. Let _valueWrapperCapability_ be ! NewPromiseCapability(%Promise%).
-    1. Perform ! Call(_valueWrapperCapability_.[[Resolve]], *undefined*, &laquo; _value_ &raquo;).
-    1. Let _onFulfilled_ be a new built-in function object as defined in <emu-xref href="#sec-async-iterator-value-unwrap-functions" title></emu-xref>.
-    1. Set _onFulfilled_.[[Done]] to _done_.
-    1. Perform ! PerformPromiseThen(_valueWrapperCapability_.[[Promise]], _onFulfilled_, *undefined*, _promiseCapability_).
+    1. Let _iteratorResult_ be ! CreateIterResultObject(_value_, _done_).
+    1. Perform ! Call(_promiseCapability_.[[Resolve]], *undefined*, &laquo; _iteratorResult_ &raquo;).
     1. Perform ! AsyncGeneratorResumeNext(_generator_).
     1. Return *undefined*.
   </emu-clause>
