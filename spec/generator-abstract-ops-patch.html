@@ -36,8 +36,8 @@
     1. Assert: _genContext_ is the execution context of a generator.
     1. Let _generator_ be the value of the Generator component of _genContext_.
     1. Assert: GetGeneratorKind() is ~async~.
-    1. Set _generator_.[[AsyncGeneratorState]] to `"suspendedYield"`.
     1. Set _value_ to ? Await(_value_).
+    1. Set _generator_.[[AsyncGeneratorState]] to `"suspendedYield"`.
     1. Remove _genContext_ from the execution context stack and restore the execution context that is at the top of the execution context stack as the running execution context.
     1. Set the code evaluation state of _genContext_ such that when evaluation is resumed with a Completion _resumptionValue_ the following steps will be performed:
       1. Return _resumptionValue_.
